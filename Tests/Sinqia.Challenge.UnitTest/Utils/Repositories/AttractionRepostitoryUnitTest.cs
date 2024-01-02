@@ -53,21 +53,6 @@ public class AttractionRepositoryUnitTest : IAttractionRepositoryUnitTest
 		return Task.FromResult<IEnumerable<Attraction>>(_attractions.Where(a => a.Location.Contains(search)).ToList());
 	}
 
-	public async Task CreateAsync(Attraction attraction)
-	{
-		throw new NotImplementedException();
-	}
-
-	public async Task UpdateAsync(Attraction attraction)
-	{
-		throw new NotImplementedException();
-	}
-
-	public async Task DeleteAsync(Attraction attraction)
-	{
-		throw new NotImplementedException();
-	}
-
 	public Task CreateAttractionAsync(Attraction attraction)
 	{
 		_attractions.Add(attraction);

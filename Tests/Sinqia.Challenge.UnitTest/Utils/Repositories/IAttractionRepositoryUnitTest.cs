@@ -14,7 +14,7 @@ public interface IAttractionRepositoryUnitTest : IAttractionRepository
 	new Task<IEnumerable<Attraction>> SearchAttractionByNameAsync(string search);
 	new Task<IEnumerable<Attraction>> SearchAttractionByDescriptionAsync(string search);
 	new Task<IEnumerable<Attraction>> SearchAttractionByLocationAsync(string search);
-	new Task CreateAsync(Attraction attraction);
-	new Task UpdateAsync(Attraction attraction);
-	new Task DeleteAsync(Attraction attraction);
+	new Task CreateAttractionAsync(Attraction attraction);
+	new Task UpdateAttractionAsync(Attraction attraction);
+	new Task DeleteAttractionAsync(Attraction attraction);
 }
