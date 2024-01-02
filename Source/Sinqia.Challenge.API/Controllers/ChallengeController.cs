@@ -32,25 +32,25 @@ public class ChallengeController(IAttractionUseCase attraction) : Controller
 
 	[HttpGet("search-name")]
 	public async Task<BaseActionResult<IEnumerable<ResponseAttraction>>> SearchAttractionByNameAsync(
-		[FromQuery] string search)
+		[FromQuery] string? search)
 	{
-		var response = await attraction.SearchAttractionByNameAsync(search);
+		var response = await attraction.SearchAttractionByNameAsync(search!);
 		return new BaseActionResult<IEnumerable<ResponseAttraction>>(HttpStatusCode.OK, response);
 	}
 
 	[HttpGet("search-location")]
 	public async Task<BaseActionResult<IEnumerable<ResponseAttraction>>> SearchAttractionByLocationAsync(
-		[FromQuery] string search)
+		[FromQuery] string? search)
 	{
-		var response = await attraction.SearchAttractionByLocationAsync(search);
+		var response = await attraction.SearchAttractionByLocationAsync(search!);
 		return new BaseActionResult<IEnumerable<ResponseAttraction>>(HttpStatusCode.OK, response);
 	}
 
 	[HttpGet("search-description")]
 	public async Task<BaseActionResult<IEnumerable<ResponseAttraction>>> SearchAttractionByDescriptionAsync(
-		[FromQuery] string search)
+		[FromQuery] string? search)
 	{
-		var response = await attraction.SearchAttractionByDescriptionAsync(search);
+		var response = await attraction.SearchAttractionByDescriptionAsync(search!);
 		return new BaseActionResult<IEnumerable<ResponseAttraction>>(HttpStatusCode.OK, response);
 	}
 

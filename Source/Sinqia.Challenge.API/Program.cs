@@ -13,7 +13,7 @@ AttractionDbContextFactory.Create(configuration["SQLServer:ConnectionString"]!).
 services.AddApplicationInjection(configuration);
 services.AddCors(options =>
 {
-	options.AddPolicy("*",builder =>
+	options.AddPolicy("*", builder =>
 	{
 		builder
 			.AllowAnyHeader()

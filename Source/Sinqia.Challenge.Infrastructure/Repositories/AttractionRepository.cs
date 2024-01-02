@@ -19,7 +19,7 @@ public class AttractionRepository(AttractionDbContext context, IConfiguration co
 
 	public async Task<Attraction?> FindByAttractionIdAsync(Guid id)
 	{
-		return await context.Attractions!.FindAsync(id)!;
+		return await context.Attractions!.FirstOrDefaultAsync(a => a.AttractionId == id);
 	}
 
 	public async Task<Attraction?> FindByAttractionNameAsync(string name)
@@ -63,27 +63,23 @@ public class AttractionRepository(AttractionDbContext context, IConfiguration co
 			.ToListAsync();
 	}
 
-	public async Task CreateAsync(Attraction attraction)
+	public async Task CreateAttractionAsync(Attraction attraction)
 	{
 		await using var sqlConnection = new SqlConnection(configuration["SQLServer:ConnectionString"]);
 		await sqlConnection.OpenAsync();
 		await sqlConnection.ExecuteAsync("SP_INSERT_ATTRACTION", attraction, commandType: CommandType.StoredProcedure);
 	}
 
-	public async Task UpdateAsync(Attraction attraction)
+	public async Task UpdateAttractionAsync(Attraction attraction)
 	{
-		context.Entry(attraction).State = EntityState.Modified;
+		context.Attractions!.Update(attraction);
 		await SaveChangesAsync();
 	}
 
-	public async Task DeleteAsync(Guid id)
+	public async Task DeleteAttractionAsync(Attraction attraction)
 	{
-		var attractionToDelete = await context.Attractions!.FindAsync(id);
-		if (attractionToDelete != null)
-		{
-			context.Attractions.Remove(attractionToDelete);
-			await SaveChangesAsync();
-		}
+		context.Attractions!.Remove(attraction);
+		await SaveChangesAsync();
 	}
 
 	private async Task SaveChangesAsync()

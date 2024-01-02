@@ -13,7 +13,7 @@ public interface IAttractionRepository
 	Task<IEnumerable<Attraction>> SearchAttractionByNameAsync(string search);
 	Task<IEnumerable<Attraction>> SearchAttractionByDescriptionAsync(string search);
 	Task<IEnumerable<Attraction>> SearchAttractionByLocationAsync(string search);
-	Task CreateAsync(Attraction attraction);
-	Task UpdateAsync(Attraction attraction);
-	Task DeleteAsync(Guid id);
+	Task CreateAttractionAsync(Attraction attraction);
+	Task UpdateAttractionAsync(Attraction attraction);
+	Task DeleteAttractionAsync(Attraction attraction);
 }
