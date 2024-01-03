@@ -13,11 +13,9 @@ AttractionDbContextFactory.Create(configuration["SQLServer:ConnectionString"]!).
 services.AddApplicationInjection(configuration);
 services.AddCors(options =>
 {
-	options.AddPolicy("*", builder =>
+	options.AddDefaultPolicy(builder =>
 	{
-		builder
-			.AllowAnyHeader()
-			.AllowCredentials()
+		builder.AllowAnyOrigin()
 			.AllowAnyMethod()
 			.AllowAnyHeader();
 	});
@@ -56,7 +54,7 @@ else
 
 app.UseSwagger();
 app.UseSwaggerUI();
-app.UseCors("*");
+app.UseCors();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();

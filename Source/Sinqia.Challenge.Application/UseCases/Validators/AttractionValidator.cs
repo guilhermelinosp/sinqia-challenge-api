@@ -2,7 +2,7 @@ using FluentValidation;
 using Sinqia.Challenge.Domain.DTOs.Requests;
 using Sinqia.Challenge.Domain.DTOs.Responses;
 using Sinqia.Challenge.Domain.Entities;
-using Sinqia.Challenge.Domain.Messages;
+using Sinqia.Challenge.Domain.Exceptions;
 
 namespace Sinqia.Challenge.Application.UseCases.Validators;
 
@@ -19,7 +19,7 @@ public class AttractionValidator : AbstractValidator<RequestAttraction>
 		RuleFor(attraction => attraction.Description)
 			.NotEmpty()
 			.WithMessage(MessageException.DESCRIPTION_EMPYT)
-			.MaximumLength(1000)
+			.MaximumLength(100)
 			.WithMessage(MessageException.DESCRIPTION_MAX_LENGTH);
 
 		RuleFor(attraction => attraction.Location)

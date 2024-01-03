@@ -1,8 +1,7 @@
-﻿namespace Sinqia.Challenge.Domain.Messages;
+﻿namespace Sinqia.Challenge.Domain.Exceptions;
 
 public record MessageException
 {
-	public static string ATTRACTION_NOT_FOUND => "a atração não foi encontrada.";
 	public static string NAME_ALREADY_EXISTS => "o nome da atração já existe.";
 	public static string CITY_EMPYT => "a cidade da atração não pode ser vazio.";
 	public static string CITY_MAX_LENGTH => "a cidade da atração não pode ter mais de 100 caracteres.";
@@ -19,7 +18,6 @@ public record MessageException
 
 	public static string LOCATION_EMPYT => "a localização da atração não pode ser vazia.";
 	public static string LOCATION_MAX_LENGTH => "a localização da atração não pode ter mais de 100 caracteres.";
-
-
+	
 	public static string ERRO_DESCONHECIDO => "ocorreu um erro desconhecido.";
 }

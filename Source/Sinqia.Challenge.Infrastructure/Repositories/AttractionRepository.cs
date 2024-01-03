@@ -12,78 +12,27 @@ namespace Sinqia.Challenge.Infrastructure.Repositories;
 
 public class AttractionRepository(AttractionDbContext context, IConfiguration configuration) : IAttractionRepository
 {
-	public async Task<IEnumerable<Attraction>> FindAllAsync()
+	public async Task<IEnumerable<Attraction>> FindAllAttractionAsync()
 	{
-		return await context.Attractions!.ToListAsync();
-	}
-
-	public async Task<Attraction?> FindByAttractionIdAsync(Guid id)
-	{
-		return await context.Attractions!.FirstOrDefaultAsync(a => a.AttractionId == id);
+		return await context.Attractions!.AsNoTracking().ToListAsync();
 	}
 
 	public async Task<Attraction?> FindByAttractionNameAsync(string name)
 	{
-		return await context.Attractions!.FirstOrDefaultAsync(a => a.Name == name);
+		return await context.Attractions!.AsNoTracking().FirstOrDefaultAsync(a => a.Name == name);
 	}
 
-	public async Task<Attraction?> FindByAttractionStateAsync(string state)
+	public async Task<IEnumerable<Attraction>> SearchAttractionAsync(string search)
 	{
-		return await context.Attractions!.FirstOrDefaultAsync(a => a.State == state);
-	}
-
-	public async Task<Attraction?> FindByAttractionCityAsync(string city)
-	{
-		return await context.Attractions!.FirstOrDefaultAsync(a => a.City == city);
-	}
-
-	public async Task<Attraction?> FindByAttractionLocationAsync(string location)
-	{
-		return await context.Attractions!.FirstOrDefaultAsync(a => a.Location == location);
-	}
-
-	public async Task<IEnumerable<Attraction>> SearchAttractionByNameAsync(string search)
-	{
-		return await context.Attractions!
-			.Where(a => EF.Functions.Like(a.Name, $"%{search}%"))
-			.ToListAsync();
-	}
-
-	public async Task<IEnumerable<Attraction>> SearchAttractionByDescriptionAsync(string search)
-	{
-		return await context.Attractions!
-			.Where(a => EF.Functions.Like(a.Description, $"%{search}%"))
-			.ToListAsync();
-	}
-
-	public async Task<IEnumerable<Attraction>> SearchAttractionByLocationAsync(string search)
-	{
-		return await context.Attractions!
-			.Where(a => EF.Functions.Like(a.Location, $"%{search}%"))
-			.ToListAsync();
+		await using var sqlConnection = new SqlConnection(configuration["SQLServer:ConnectionString"]);
+		await sqlConnection.OpenAsync();
+		return await sqlConnection.QueryAsync<Attraction>("SP_SEARCH_ATTRACTION", new { SearchTerm = search },
+			commandType: CommandType.StoredProcedure);
 	}
 
 	public async Task CreateAttractionAsync(Attraction attraction)
 	{
-		await using var sqlConnection = new SqlConnection(configuration["SQLServer:ConnectionString"]);
-		await sqlConnection.OpenAsync();
-		await sqlConnection.ExecuteAsync("SP_INSERT_ATTRACTION", attraction, commandType: CommandType.StoredProcedure);
-	}
-
-	public async Task UpdateAttractionAsync(Attraction attraction)
-	{
-		context.Attractions!.Update(attraction);
-		await SaveChangesAsync();
-	}
-
-	public async Task DeleteAttractionAsync(Attraction attraction)
-	{
-		context.Attractions!.Remove(attraction);
-		await SaveChangesAsync();
-	}
-
-	private async Task SaveChangesAsync()
-	{
+		await context.Attractions!.AddAsync(attraction);
 		await context.SaveChangesAsync();
 	}
 }

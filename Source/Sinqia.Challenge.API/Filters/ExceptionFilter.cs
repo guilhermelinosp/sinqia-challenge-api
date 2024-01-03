@@ -1,7 +1,6 @@
 using System.Net;
 using Sinqia.Challenge.Domain.DTOs.Responses;
 using Sinqia.Challenge.Domain.Exceptions;
-using Sinqia.Challenge.Domain.Messages;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 

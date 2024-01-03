@@ -106,4 +106,6 @@ public class CreateAttractionUnitTest
 			await _attractionUseCase.CreateAttractionAsync(newRequest);
 		});
 	}
+	
+	
 }

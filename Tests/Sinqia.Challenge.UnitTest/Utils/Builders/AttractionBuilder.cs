@@ -6,8 +6,8 @@ namespace Sinqia.Challenge.UnitTest.Utils.Builders;
 
 public class AttractionBuilder
 {
-	private readonly Faker<RequestAttraction> _builder;
 	private const string EmptyString = "";
+	private readonly Faker<RequestAttraction> _builder;
 
 	public AttractionBuilder()
 	{
@@ -33,7 +33,7 @@ public class AttractionBuilder
 	{
 		return new Faker<RequestAttraction>()
 			.RuleFor(c => c.Name, f => EmptyString)
-			.RuleFor(c => c.Description, f => null)
+			.RuleFor(c => c.Description, f => null!)
 			.RuleFor(c => c.Location, f => f.Lorem.Sentence())
 			.RuleFor(c => c.City, f => "CityName")
 			.RuleFor(c => c.State, f => f.PickRandom(null, EmptyString));

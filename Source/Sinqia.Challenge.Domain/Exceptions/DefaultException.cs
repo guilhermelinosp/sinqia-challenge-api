@@ -5,8 +5,6 @@ namespace Sinqia.Challenge.Domain.Exceptions;
 [Serializable]
 public class DefaultException : SystemException
 {
-	public List<string>? ErrorMessages { get; set; }
-
 	public DefaultException(List<string>? errorMessages) : base(string.Empty)
 	{
 		ErrorMessages = errorMessages;
@@ -15,4 +13,6 @@ public class DefaultException : SystemException
 	protected DefaultException(SerializationInfo info, StreamingContext context) : base(info, context)
 	{
 	}
+
+	public List<string>? ErrorMessages { get; set; }
 }
