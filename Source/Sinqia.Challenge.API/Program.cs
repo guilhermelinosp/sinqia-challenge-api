@@ -8,7 +8,7 @@ var configuration = builder.Configuration;
 
 var services = builder.Services;
 
-AttractionDbContextFactory.Create(configuration["SQLServer:ConnectionString"]!).Seed();
+AttractionDbContextFactory.Create(configuration["SQLServer:ConnectionString"]!);
 
 services.AddApplicationInjection(configuration);
 services.AddCors(options =>
