@@ -2,6 +2,7 @@
 
 services:
   sinqia.challenge.api:
+    container_name: sinqia.challenge.api
     image: sinqia.challenge.api:dev
     build:
       context: .

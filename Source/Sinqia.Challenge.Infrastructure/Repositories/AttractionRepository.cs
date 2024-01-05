@@ -7,7 +7,6 @@ using Sinqia.Challenge.Domain.Entities;
 using Sinqia.Challenge.Domain.Repositories;
 using Sinqia.Challenge.Infrastructure.Contexts;
 
-
 namespace Sinqia.Challenge.Infrastructure.Repositories;
 
 public class AttractionRepository(AttractionDbContext context, IConfiguration configuration) : IAttractionRepository
