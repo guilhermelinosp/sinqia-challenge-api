@@ -1,11 +1,11 @@
 using FluentAssertions;
 using Sinqia.Challenge.Application.UseCases;
 using Sinqia.Challenge.Domain.Exceptions;
-using Sinqia.Challenge.UnitTest.Utils.Builders;
-using Sinqia.Challenge.UnitTest.Utils.Repositories;
+using Sinqia.Challenge.UnitTesting.Utils.Builders;
+using Sinqia.Challenge.UnitTesting.Utils.Repositories;
 using Xunit;
 
-namespace Sinqia.Challenge.UnitTest.UseCases;
+namespace Sinqia.Challenge.UnitTesting.UseCases;
 
 public class CreateAttractionUnitTest
 {
@@ -106,6 +106,4 @@ public class CreateAttractionUnitTest
 			await _attractionUseCase.CreateAttractionAsync(newRequest);
 		});
 	}
-	
-	
 }

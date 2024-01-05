@@ -18,6 +18,6 @@ public record MessageException
 
 	public static string LOCATION_EMPYT => "a localização da atração não pode ser vazia.";
 	public static string LOCATION_MAX_LENGTH => "a localização da atração não pode ter mais de 100 caracteres.";
-	
+
 	public static string ERRO_DESCONHECIDO => "ocorreu um erro desconhecido.";
 }

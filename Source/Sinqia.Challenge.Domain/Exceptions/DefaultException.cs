@@ -3,16 +3,7 @@ using System.Runtime.Serialization;
 namespace Sinqia.Challenge.Domain.Exceptions;
 
 [Serializable]
-public class DefaultException : SystemException
+public class DefaultException(List<string>? errorMessages) : SystemException(string.Empty)
 {
-	public DefaultException(List<string>? errorMessages) : base(string.Empty)
-	{
-		ErrorMessages = errorMessages;
-	}
-
-	protected DefaultException(SerializationInfo info, StreamingContext context) : base(info, context)
-	{
-	}
-
-	public List<string>? ErrorMessages { get; set; }
+	public List<string>? ErrorMessages { get; set; } = errorMessages;
 }

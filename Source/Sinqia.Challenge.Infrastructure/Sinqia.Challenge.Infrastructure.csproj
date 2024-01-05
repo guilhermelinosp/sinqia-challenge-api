@@ -28,6 +28,7 @@
 
 
     <ItemGroup>
+        <ProjectReference Include="..\Challenge.Sinqia.Domain\Challenge.Sinqia.Domain.csproj"/>
         <ProjectReference Include="..\Sinqia.Challenge.Domain\Sinqia.Challenge.Domain.csproj"/>
     </ItemGroup>
 

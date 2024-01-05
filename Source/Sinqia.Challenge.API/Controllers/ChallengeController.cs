@@ -1,7 +1,7 @@
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
-using Sinqia.Challenge.API.Controllers.Abstract;
 using Sinqia.Challenge.Application.UseCases;
+using Sinqia.Challenge.API.Controllers.Abstract;
 using Sinqia.Challenge.Domain.DTOs.Requests;
 using Sinqia.Challenge.Domain.DTOs.Responses;
 

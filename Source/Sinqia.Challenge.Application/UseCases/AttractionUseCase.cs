@@ -36,7 +36,7 @@ public class AttractionUseCase(IAttractionRepository repository) : IAttractionUs
 		if (await repository.FindByAttractionNameAsync(request.Name) != null)
 			throw new DefaultException([MessageException.NAME_ALREADY_EXISTS]);
 
-		await repository.CreateAttractionAsync(new Attraction()
+		await repository.CreateAttractionAsync(new Attraction
 		{
 			City = request.City,
 			Description = request.Description,

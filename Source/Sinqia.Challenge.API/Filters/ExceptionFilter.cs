@@ -1,8 +1,8 @@
 using System.Net;
-using Sinqia.Challenge.Domain.DTOs.Responses;
-using Sinqia.Challenge.Domain.Exceptions;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Sinqia.Challenge.Domain.DTOs.Responses;
+using Sinqia.Challenge.Domain.Exceptions;
 
 namespace Sinqia.Challenge.API.Filters;
 

@@ -1,7 +1,5 @@
 using FluentValidation;
 using Sinqia.Challenge.Domain.DTOs.Requests;
-using Sinqia.Challenge.Domain.DTOs.Responses;
-using Sinqia.Challenge.Domain.Entities;
 using Sinqia.Challenge.Domain.Exceptions;
 
 namespace Sinqia.Challenge.Application.UseCases.Validators;

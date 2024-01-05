@@ -29,7 +29,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\Source\Sinqia.Challenge.Application\Sinqia.Challenge.Application.csproj"/>
-        <ProjectReference Include="..\..\Source\Sinqia.Challenge.Domain\Sinqia.Challenge.Domain.csproj"/>
+        <ProjectReference Include="..\..\Source\Challenge.Sinqia.Domain\Challenge.Sinqia.Domain.csproj"/>
     </ItemGroup>
 
 </Project>

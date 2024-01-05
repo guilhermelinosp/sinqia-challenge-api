@@ -1,5 +1,5 @@
-using Sinqia.Challenge.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Sinqia.Challenge.Domain.Entities;
 using Sinqia.Challenge.Infrastructure.Contexts.Configurations;
 
 namespace Sinqia.Challenge.Infrastructure.Contexts;

@@ -1,8 +1,7 @@
 using Sinqia.Challenge.Domain.Entities;
-using Sinqia.Challenge.Domain.Exceptions;
 using Sinqia.Challenge.Domain.Repositories;
 
-namespace Sinqia.Challenge.UnitTest.Utils.Repositories;
+namespace Sinqia.Challenge.UnitTesting.Utils.Repositories;
 
 public interface IAttractionRepositoryUnitTest : IAttractionRepository;
 

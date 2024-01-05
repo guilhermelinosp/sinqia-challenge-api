@@ -2,7 +2,7 @@ using System.Linq.Expressions;
 using Bogus;
 using Sinqia.Challenge.Domain.DTOs.Requests;
 
-namespace Sinqia.Challenge.UnitTest.Utils.Builders;
+namespace Sinqia.Challenge.UnitTesting.Utils.Builders;
 
 public class AttractionBuilder
 {
@@ -32,16 +32,16 @@ public class AttractionBuilder
 	private Faker<RequestAttraction> InvalidatedBuilder()
 	{
 		return new Faker<RequestAttraction>()
-			.RuleFor(c => c.Name, f => EmptyString)
-			.RuleFor(c => c.Description, f => null!)
+			.RuleFor(c => c.Name, _ => EmptyString)
+			.RuleFor(c => c.Description, _ => null!)
 			.RuleFor(c => c.Location, f => f.Lorem.Sentence())
-			.RuleFor(c => c.City, f => "CityName")
+			.RuleFor(c => c.City, _ => "CityName")
 			.RuleFor(c => c.State, f => f.PickRandom(null, EmptyString));
 	}
 
 	public AttractionBuilder WithFieldEmpty<TProperty>(Expression<Func<RequestAttraction, TProperty>> property)
 	{
-		if (typeof(TProperty) == typeof(string)) _builder.RuleFor(property, f => (TProperty)(object)string.Empty);
+		if (typeof(TProperty) == typeof(string)) _builder.RuleFor(property, _ => (TProperty)(object)string.Empty);
 
 		return this;
 	}
@@ -49,7 +49,7 @@ public class AttractionBuilder
 	public AttractionBuilder WithFieldExists<TProperty>(Expression<Func<RequestAttraction, TProperty>> property,
 		TProperty value)
 	{
-		if (typeof(TProperty) == typeof(string)) _builder.RuleFor(property, f => value);
+		if (typeof(TProperty) == typeof(string)) _builder.RuleFor(property, _ => value);
 
 		return this;
 	}

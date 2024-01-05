@@ -1,9 +1,9 @@
-using Sinqia.Challenge.UnitTest.Utils.Builders;
 using Xunit;
 using FluentAssertions;
 using Sinqia.Challenge.Application.UseCases.Validators;
+using Sinqia.Challenge.UnitTesting.Utils.Builders;
 
-namespace Sinqia.Challenge.UnitTest.Validators;
+namespace Sinqia.Challenge.UnitTesting.Validators;
 
 public class AttractionValidatorTests
 {

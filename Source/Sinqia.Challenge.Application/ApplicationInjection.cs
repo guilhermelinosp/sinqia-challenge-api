@@ -1,5 +1,5 @@
-using Sinqia.Challenge.Application.UseCases;
 using Sinqia.Challenge.Infrastructure;
+using Sinqia.Challenge.Application.UseCases;
 
 namespace Sinqia.Challenge.Application;
 

@@ -25,7 +25,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sinqia.Challenge.Infrastruc
 		{8388376C-C896-4D12-B4D6-D7FCD8590586} = {8388376C-C896-4D12-B4D6-D7FCD8590586}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sinqia.Challenge.UnitTest", "Tests\Sinqia.Challenge.UnitTest\Sinqia.Challenge.UnitTest.csproj", "{8A7BE5B7-DBB4-4AC2-8AB0-3FE3ADD2C4AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sinqia.Challenge.UnitTesting", "Tests\Sinqia.Challenge.UnitTesting\Sinqia.Challenge.UnitTesting.csproj", "{8A7BE5B7-DBB4-4AC2-8AB0-3FE3ADD2C4AA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
