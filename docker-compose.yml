@@ -1,0 +1,13 @@
+﻿version: '3.8'
+
+services:
+  sinqia.challenge.api:
+    image: sinqia.challenge.api:dev
+    build:
+      context: .
+      dockerfile: Source/Sinqia.Challenge.API/Dockerfile
+    ports:
+        - "8080:8080"
+        - "8081:8081"
+    entrypoint: 
+        - SQLServer__ConnectionString=${SQLServer__ConnectionString}
